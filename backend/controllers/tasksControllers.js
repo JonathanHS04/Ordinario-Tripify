@@ -1,6 +1,10 @@
 const asyncHandler = require('express-async-handler')
 
-const getTasks = asyncHandler( async(req, res) => {
+const getTasksByLocation = asyncHandler( async(req, res) => {
+    
+})
+
+const getTasksByUser = asyncHandler( async(req, res) => {
     
 })
 
