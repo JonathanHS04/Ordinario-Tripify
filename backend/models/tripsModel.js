@@ -1,3 +1,6 @@
+
+//tripsModel.js
+
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/postgresdb');
 
@@ -23,6 +26,11 @@ const Trip = sequelize.define('Trip', {
   endDate: {
     type: DataTypes.DATE,
     allowNull: false
+  },
+  status: {
+    type: DataTypes.ENUM('active', 'completed', 'cancelled'),
+    allowNull: false,
+    defaultValue: 'active'
   }
 });
 
