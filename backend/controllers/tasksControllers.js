@@ -8,12 +8,19 @@ const getTasksByUser = asyncHandler( async(req, res) => {
     
 })
 
-const addTask = asyncHandler( async(req, res) => {
+const addTaskToLocation = asyncHandler( async(req, res) => {
+    
+})
+
+const addTaskToUser = asyncHandler( async(req, res) => {
     
 })
 
 
+
 module.exports = {
-    getTasks,
-    addTask
+    getTasksByLocation,
+    getTasksByUser,
+    addTaskToLocation,
+    addTaskToUser
 }
