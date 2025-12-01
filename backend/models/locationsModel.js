@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/postgresdb');
 
-const Location = sequelize.define('Location', {
+const Location = sequelize.define('location', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,

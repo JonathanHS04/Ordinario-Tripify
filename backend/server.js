@@ -22,15 +22,19 @@ app.use('/api/tasks', require('./routes/tasksRoutes'))
 
 app.use(errorHandler)
 
-async function testConnection() {
+const sequelize = require('./config/postgresdb')
+require('./models') // Importar modelos y relaciones
+
+async function connectPG() {
   try {
     await sequelize.authenticate();
-    console.log('Conexión exitosa a la base de datos');
+    console.log('PostgreSQL Connected'.cyan.underline);
+    await sequelize.sync();
   } catch (error) {
-    console.error('No se pudo conectar:', error);
+    console.error('Unable to connect to the PostgreSQL database:'.red, error);
   }
 }
 
-testConnection();
+connectPG();
 
 app.listen(port, ()=> console.log(`Servidor Iniciado en el puerto ${port}`))

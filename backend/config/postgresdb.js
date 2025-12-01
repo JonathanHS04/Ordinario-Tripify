@@ -1,15 +1,13 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('tripify', 'postgres', 'password', {
-  host: 'localhost',
-  dialect: 'postgres'
+const sequelize = new Sequelize('postgres', 'postgres', 'Cerotes123', {
+  host: 'db.btjujixfkfxbyiqedyds.supabase.co',
+  port: 5432,
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: { require: true, rejectUnauthorized: false }
+  }
 });
 
-try {
-  await sequelize.authenticate();
-  console.log('Connection has been established successfully.');
-} catch (error) {
-  console.error('Unable to connect to the database:', error);
-}
-
 module.exports = sequelize;
+

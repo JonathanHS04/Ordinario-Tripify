@@ -4,7 +4,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/postgresdb');
 
-const Trip = sequelize.define('Trip', {
+const Trip = sequelize.define('trip', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -15,7 +15,7 @@ const Trip = sequelize.define('Trip', {
     allowNull: false
   },
   userId: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false
   },
   startedDate: {

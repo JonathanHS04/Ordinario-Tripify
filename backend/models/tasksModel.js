@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/postgresdb');
 
-const Task = sequelize.define('Task', {
+const Task = sequelize.define('task', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -10,6 +10,10 @@ const Task = sequelize.define('Task', {
   locationId: {
     type: DataTypes.INTEGER,
     allowNull: false
+  },
+  userId: {
+    type: DataTypes.STRING,
+    allowNull: true
   },
   title: {
     type: DataTypes.STRING,
