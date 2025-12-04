@@ -1,7 +1,7 @@
 const express = require('express')
 const colors = require('colors')
 const dotenv = require('dotenv').config()
-const port = process.env.PORT || 5001
+const port = process.env.PORT || 5000
 const connectMongoDB = require('./config/mongodb')
 const {errorHandler} = require('./middleware/errorMiddleware')
 const cors = require('cors')
@@ -29,7 +29,8 @@ async function connectPG() {
   try {
     await sequelize.authenticate();
     console.log('PostgreSQL Connected'.cyan.underline);
-    await sequelize.sync();
+    // Sincronizar modelos (alter: true ajusta tablas sin borrar datos)
+    await sequelize.sync({ alter: true }); 
   } catch (error) {
     console.error('Unable to connect to the PostgreSQL database:'.red, error);
   }

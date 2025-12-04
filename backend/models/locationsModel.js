@@ -22,7 +22,15 @@ const Location = sequelize.define('location', {
   description: {
     type: DataTypes.TEXT,
     allowNull: true
-}
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: true
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: true
+  }
 });
 
 module.exports = Location;

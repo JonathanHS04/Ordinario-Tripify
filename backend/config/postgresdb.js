@@ -1,13 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('postgres', 'postgres', 'Cerotes123', {
-  host: 'db.btjujixfkfxbyiqedyds.supabase.co',
-  port: 5432,
-  dialect: 'postgres',
-  dialectOptions: {
-    ssl: { require: true, rejectUnauthorized: false }
-  }
-});
+const sequelize = new Sequelize("postgresql://postgres:BLKZCtR725UTGRp1@db.btjujixfkfxbyiqedyds.supabase.co:5432/postgres");
 
 module.exports = sequelize;
 

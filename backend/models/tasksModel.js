@@ -35,6 +35,14 @@ const Task = sequelize.define('task', {
     type: DataTypes.BOOLEAN,
     allowNull: false,
     defaultValue: false
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: true
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: true
   }
 });
 
