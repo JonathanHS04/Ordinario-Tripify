@@ -1,6 +1,12 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize("postgresql://postgres:BLKZCtR725UTGRp1@db.btjujixfkfxbyiqedyds.supabase.co:5432/postgres");
+const sequelize = new Sequelize(process.env.POSTGRES_URI, {
+  dialectOptions: {
+    ssl: { require: true, rejectUnauthorized: false },
+    family: 4 // 👈 Fuerza IPv4
+  }
+});
+
 
 module.exports = sequelize;
 
