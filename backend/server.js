@@ -23,13 +23,12 @@ app.use('/api/tasks', require('./routes/tasksRoutes'))
 app.use(errorHandler)
 
 const sequelize = require('./config/postgresdb')
-require('./models') // Importar modelos y relaciones
+require('./models') 
 
 async function connectPG() {
   try {
     await sequelize.authenticate();
     console.log('PostgreSQL Connected'.cyan.underline);
-    // Sincronizar modelos (alter: true ajusta tablas sin borrar datos)
     await sequelize.sync({ alter: true }); 
   } catch (error) {
     console.error('Unable to connect to the PostgreSQL database:'.red, error);
